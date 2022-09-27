@@ -14,7 +14,7 @@
  * when including this patch.
  * https://st.suckless.org/patches/alpha/
  */
-#define ALPHA_PATCH 0
+#define ALPHA_PATCH 1
 
 /* The alpha focus highlight patch allows the user to specify two distinct opacity values or
  * background colors in order to easily differentiate between focused and unfocused terminal
@@ -22,12 +22,12 @@
  * https://github.com/juliusHuelsmann/st-focus/
  * https://st.suckless.org/patches/alpha_focus_highlight/
  */
-#define ALPHA_FOCUS_HIGHLIGHT_PATCH 0
+#define ALPHA_FOCUS_HIGHLIGHT_PATCH 1 
 
 /* Adds gradient transparency to st, depends on the alpha patch.
  * https://st.suckless.org/patches/gradient/
  */
-#define ALPHA_GRADIENT_PATCH 0
+#define ALPHA_GRADIENT_PATCH 1 
 
 /* This patch allows st to resize to any pixel size rather than snapping to character width/height.
  * https://st.suckless.org/patches/anysize/
@@ -181,7 +181,7 @@
  * So they will be used first for glyphs that are absent in the default font.
  * https://st.suckless.org/patches/font2/
  */
-#define FONT2_PATCH 0
+#define FONT2_PATCH 1
 
 /* Hide the X cursor whenever a key is pressed and show it back when the mouse is moved in
  * the terminal window.
@@ -221,7 +221,7 @@
  * https://github.com/cog1to/st-ligatures
  * https://st.suckless.org/patches/ligatures/
  */
-#define LIGATURES_PATCH 0
+#define LIGATURES_PATCH 1
 
 /* This patch makes st ignore terminal color attributes by forcing display of the default
  * foreground and background colors only - making for a monochrome look. Idea ref.
@@ -267,19 +267,19 @@
 /* Scroll back through terminal output using Shift+{PageUp, PageDown}.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_PATCH 0
+#define SCROLLBACK_PATCH 1
 
 /* Scroll back through terminal output using Shift+MouseWheel.
  * This variant depends on SCROLLBACK_PATCH being enabled.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_MOUSE_PATCH 0
+#define SCROLLBACK_MOUSE_PATCH 1
 
 /* Scroll back through terminal output using mouse wheel (when not in MODE_ALTSCREEN).
  * This variant depends on SCROLLBACK_PATCH being enabled.
  * https://st.suckless.org/patches/scrollback/
  */
-#define SCROLLBACK_MOUSE_ALTSCREEN_PATCH 0
+#define SCROLLBACK_MOUSE_ALTSCREEN_PATCH 1
 
 /* This is the single drawable buffer patch as outlined in the FAQ to get images
  * in w3m to display. While this patch does not break the alpha patch it images
@@ -381,7 +381,7 @@
  * https://github.com/juliusHuelsmann/st-history-vim
  * https://st.suckless.org/patches/vim_browse/
  */
-#define VIM_BROWSE_PATCH 0
+#define VIM_BROWSE_PATCH 1
 
 /* Briefly inverts window content on terminal bell event.
  * https://st.suckless.org/patches/visualbell/
@@ -398,7 +398,7 @@
  * https://github.com/Dreomite/st/commit/e3b821dcb3511d60341dec35ee05a4a0abfef7f2
  * https://www.reddit.com/r/suckless/comments/jt90ai/update_support_for_proper_glyph_rendering_in_st/
  */
-#define WIDE_GLYPHS_PATCH 0
+#define WIDE_GLYPHS_PATCH 1
 
 /* There is a known issue that Google's Variable Fonts (VF) can end up with letter spacing
  * that is too wide in programs that use Xft, for example Inconsolata v3.000.
@@ -419,10 +419,10 @@
  * apply the resources named in the resources[] array in config.h.
  * https://st.suckless.org/patches/xresources/
  */
-#define XRESOURCES_PATCH 0
+#define XRESOURCES_PATCH 1
 
 /* This patch adds the ability to reload the Xresources config when a SIGUSR1 signal is received
  * e.g.: killall -USR1 st
  * Depends on the XRESOURCES_PATCH.
  */
-#define XRESOURCES_RELOAD_PATCH 0
+#define XRESOURCES_RELOAD_PATCH 1

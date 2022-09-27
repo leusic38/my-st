@@ -5,12 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = " JetBrainsMono Nerd Font Mono:pixelsize=12:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
+	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true",
 };
 #endif // FONT2_PATCH
 
@@ -155,7 +155,7 @@ float grad_alpha = 0.54; //alpha value that'll change
 float stat_alpha = 0.46; //constant alpha value that'll get added to grad_alpha
 #endif // ALPHA_GRADIENT_PATCH
 #if ALPHA_FOCUS_HIGHLIGHT_PATCH
-float alphaUnfocused = 0.6;
+float alphaUnfocused = 0.4;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 #endif // ALPHA_PATCH
 
@@ -197,9 +197,9 @@ static const char *colorname[] = {
  */
 #if ALPHA_PATCH && ALPHA_FOCUS_HIGHLIGHT_PATCH
 unsigned int defaultbg = 0;
-unsigned int bg = 17, bgUnfocused = 16;
+unsigned int bg = 233, bgUnfocused = 16;
 #else
-unsigned int defaultbg = 258;
+unsigned int defaultbg = 238;
 #endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 unsigned int defaultfg = 259;
 unsigned int defaultcs = 256;
