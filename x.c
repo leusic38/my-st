@@ -1581,6 +1581,11 @@ xinit(int cols, int rows)
 	XChangeProperty(xw.dpy, xw.win, xw.netwmpid, XA_CARDINAL, 32,
 			PropModeReplace, (uchar *)&thispid, 1);
 
+	#if FULLSCREEN_PATCH
+	xw.netwmstate = XInternAtom(xw.dpy, "_NET_WM_STATE", False);
+	xw.netwmfullscreen = XInternAtom(xw.dpy, "_NET_WM_STATE_FULLSCREEN", False);
+	#endif // FULLSCREEN_PATCH
+
 	win.mode = MODE_NUMLOCK;
 	resettitle();
 	xhints();
@@ -3030,7 +3035,7 @@ focus(XEvent *ev)
 		if (!focused) {
 			focused = 1;
 			xloadcols();
-			redraw();
+			tfulldirt();
 		}
 		#endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 	} else {
@@ -3043,7 +3048,7 @@ focus(XEvent *ev)
 		if (focused) {
 			focused = 0;
 			xloadcols();
-			redraw();
+			tfulldirt();
 		}
 		#endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 	}
@@ -3096,7 +3101,7 @@ void
 kpress(XEvent *ev)
 {
 	XKeyEvent *e = &ev->xkey;
-	KeySym ksym;
+	KeySym ksym = NoSymbol;
 	char buf[64], *customkey;
 	int len, screen;
 	Rune c;
@@ -3131,10 +3136,13 @@ kpress(XEvent *ev)
 	if (IS_SET(MODE_KBDLOCK))
 		return;
 
-	if (xw.ime.xic)
+	if (xw.ime.xic) {
 		len = XmbLookupString(xw.ime.xic, e, buf, sizeof buf, &ksym, &status);
-	else
+		if (status == XBufferOverflow)
+			return;
+	} else {
 		len = XLookupString(e, buf, sizeof buf, &ksym, NULL);
+	}
 	#if KEYBOARDSELECT_PATCH
 	if ( IS_SET(MODE_KBDSELECT) ) {
 		if ( match(XK_NO_MOD, e->state) ||
